@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title Hangman - Game #{id}
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
+		script(src='/game.js', type='text/javascript')
+		script.
+			$(document).ready(function(){
+			var Gid = #{id}; //$('#pId').data('value');
+			$('#baseId').attr('href','/games/'+Gid+'/');	
+			});	
+		base#baseId(href='')
+	body
+		h1 Hangman - Game #{id}
+		h2#word(data-length=length)
+		p Press letter keys to guess
+		h3 Missed letters:
+		p#missedLetters

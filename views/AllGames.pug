@@ -1,0 +1,27 @@
+doctype html
+html
+	head
+		title Hangman - All Games
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
+		script(src='/allGame.js')
+		script.
+			$(document).ready(function(){
+			var dataAll = !{JSON.stringify(data)};
+			buildList(dataAll);
+			$('input.Delete').on('click',(function(){
+			var gameId = $(this).attr('id');
+			$.ajax({
+				url:'/games/'+gameId,
+				type:'delete',
+				sucess:function(){
+					alert('Item deleted');
+				},
+				error:function(error){
+					console.log(error);
+				}
+			})
+			}))
+			});
+	body
+		h1 All games listed below
+		table#AllGames

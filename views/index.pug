@@ -1,0 +1,9 @@
+html
+	head
+	body
+		h1 #{userId}
+		form(action='/games', method='POST')
+			input(type='text', name='word', placeholder='Enter a word to guess...')
+			input(type='submit')
+		a(href='/games/all') All Games
+	
